@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Trabajo Intermedio - Editor de texto enriquecido</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    <script src="js/main.js"></script>
+</head>
+
+<body>
+    
+    <h1>Editor de Texto Enriquecido</h1>
+    <div class="editor-container">
+        <div class="editor-toolbar">
+            <a href="javascript:return 0;" title="Deshacer" onmousedown="document.execCommand('undo', false, null); return false;" class="editor-button">
+                <i class="fa fa-undo"></i>
+            </a>
+            <a href="javascript:return 0;" title="Rehacer" onmousedown="document.execCommand('redo', false, null); return false;" class="editor-button">
+                <i class="fa fa-redo"></i>
+            </a>
+            <select onchange="formatDoc('formatblock',this[this.selectedIndex].value);this.selectedIndex=0;">
+                <option selected>- Estilos -</option>
+                <option value="h1">Título 1 &lt;h1&gt;</option>
+                <option value="h2">Título 2 &lt;h2&gt;</option>
+                <option value="h3">Título 3 &lt;h3&gt;</option>
+                <option value="h4">Título 4 &lt;h4&gt;</option>
+                <option value="h5">Título 5 &lt;h5&gt;</option>
+                <option value="h6">Subtítulo &lt;h6&gt;</option>
+            </select>
+            <select onchange="formatDoc('fontname',this[this.selectedIndex].value);this.selectedIndex=0;">
+                <option class="heading" selected>- Fuentes -</option>
+                <option>Arial</option>
+                <option>Arial Black</option>
+                <option>Courier New</option>
+                <option>Times New Roman</option>
+            </select>
+            <select onchange="formatDoc('forecolor',this[this.selectedIndex].value);this.selectedIndex=0;">
+                    <option class="heading" selected>- colores -</option>
+                    <option value="red">Rojo</option>
+                    <option value="blue">Azul</option>
+                    <option value="green">Verde</option>
+                    <option value="black">Negro</option>
+                    </select>
+            <a href="javascript:return 0;" title="Negrita" onmousedown="document.execCommand('bold', false, null); return false;" class="editor-button">
+                <i class="fa fa-bold"></i>
+            </a>
+            <a href="javascript:return 0;" title="Itálica" onmousedown="document.execCommand('italic', false, null); return false;" class="editor-button">
+                <i class="fa fa-italic"></i>
+            </a>
+            <a href="javascript:return 0;" title="Subrayado" onmousedown="document.execCommand('underline', false, null); return false;"
+                class="editor-button">
+                <i class="fa fa-underline"></i>
+            </a>
+            <a href="javascript:return 0;" title="Tachar text" onmousedown="document.execCommand('strikeThrough', false, null); return false;"
+                class="editor-button">
+                <i class="fa fa-strikethrough"></i>
+            </a>
+            <!--a href="javascript:return 0;" title="Disminuir el tamaño del texto" onmousedown="document.execCommand('decreaseFontSize', false, null); return false;"
+                class="editor-button">
+                <i class="fa fa-minus"></i>
+            </a>
+            <a href="javascript:return 0;" title="Aumentar el tamaño del texto" onmousedown="document.execCommand('increaseFontSize', false, null); return false;"
+                class="editor-button">
+                <i class="fa fa-plus"></i>
+            </a-->
+            <a href="javascript:return 0;" title="Justificar" onmousedown="document.execCommand('justifyleft', false, null); return false;"
+                class="editor-button">
+                <i class="fa fa-align-left"></i>
+            </a>
+            <a href="javascript:return 0;" title="fa-align-center" onmousedown="document.execCommand('justifycenter', false, null); return false;"
+                class="editor-button">
+                <i class="fa fa-align-center"></i>
+            </a>
+            <a href="javascript:return 0;" title="justifyright" onmousedown="document.execCommand('justifyright', false, null); return false;"
+                class="editor-button">
+                <i class="fa fa-align-right"></i>
+            </a>
+            <a href="javascript:return 0;" title="Lista Numerica" onmousedown="document.execCommand('insertorderedlist', false, null); return false;" class="editor-button">
+                <i class="fa fa-list-ol" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:return 0;" title="Lista de puntos" onmousedown="document.execCommand('insertunorderedlist', false, null); return false;" class="editor-button">
+                <i class="fa fa-list-ul" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:return 0;" title="Copiar" onmousedown="document.execCommand('copy', false, null); return false;" class="editor-button">
+                <i class="fa fa-clipboard" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:return 0;" title="Pegar" onmousedown="formatDoc('paste');" class="editor-button">
+                <i class="fa fa-clone" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:return 0;" title="Cortar" onmousedown="document.execCommand('cut', false, null); return false;" class="editor-button">
+                <i class="fa fa-cut" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:return 0;" title="Insertar hipervínculos" onmousedown="var sLnk=prompt('Escribe la URL aquí','http:\/\/');if(sLnk&&sLnk!=''&&sLnk!='http://'){formatDoc('createlink',sLnk);}"
+                class="editor-button">
+                <i class="fa fa-link" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div class="editor-window">
+            <div class="editor-textarea" contenteditable="true">Escriba aquí </div>
+        </div>
+    </div>
+</body>
+
+</html>
