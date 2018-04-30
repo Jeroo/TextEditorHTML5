@@ -16,7 +16,7 @@ label {
   border-radius:5px; -webkit-transition: all 200ms ease-in-out; -moz-transition: all 200ms ease-in-out; -ms-transition: all 200ms ease-in-out; 
   -o-transition: all 200ms ease-in-out; transition: all 200ms ease-in-out; outline:none; text-decoration:none;}
   .editor-button:hover,.editor-button:focus{background:#5B5A5A; color:#D6D6D6; outline:none;}
-  .editor-window{background:#FAFAFA; padding:1%; height:10em; overflow:auto;}
+  .editor-window{background:#FAFAFA; padding:1%; height:30em; overflow:auto;}
   .dropdown{
     width:10em; display:inline-block; position:relative; background:#3D3D3D; -moz-box-shadow: 0 0 9px -4px #000000; -webkit-box-shadow: 0 0 9px -4px #000000;
     box-shadow: 0 0 9px -4px #000000;}
@@ -25,3 +25,45 @@ label {
     {background:#5B5A5A; color:#D6D6D6; outline:none; -webkit-transition: all 200ms ease-in-out; -moz-transition: all 200ms ease-in-out; 
     -ms-transition: all 200ms ease-in-out; -o-transition: all 200ms ease-in-out; transition: all 200ms ease-in-out; outline:none; text-decoration:none;}
     .drop{display:inline-block;}
+
+
+    /*#######################################################---------Cargar imagenes----------###########################################################*/
+   
+    
+      .hidden,
+      #uploadImg:not(.hidden) + label {
+        display: none;
+      }
+      #file {
+        display: none;
+        margin: 0 auto;
+      }
+
+      .faimg {
+        cursor: pointer;
+      }
+      #upload {
+        display: none;
+        padding: 10px 25px;
+        border: 0;
+        margin: 0 auto;
+        font-size: 15px;
+        letter-spacing: 0.05em;
+        cursor: pointer;
+        background: #216e69;
+        color: #fff;
+        outline: none;
+        transition: 0.3s ease-in-out;
+      }
+      #upload:hover,
+      #upload:focus {
+        background: #1aa39a;
+      }
+      #upload:active {
+        background: #13d4c8;
+        transition: 0.1s ease-in-out;
+      }
+      img {
+        display: block;
+        margin: 0 auto 15px;
+      }

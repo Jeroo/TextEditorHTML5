@@ -43,12 +43,21 @@
                 <option>Times New Roman</option>
             </select>
             <select onchange="formatDoc('forecolor',this[this.selectedIndex].value);this.selectedIndex=0;">
-                    <option class="heading" selected>- colores -</option>
-                    <option value="red">Rojo</option>
-                    <option value="blue">Azul</option>
-                    <option value="green">Verde</option>
-                    <option value="black">Negro</option>
-                    </select>
+                <option class="heading" selected>- colores -</option>
+                <option value="red">Rojo</option>
+                <option value="blue">Azul</option>
+                <option value="green">Verde</option>
+                <option value="black">Negro</option>
+            </select>
+
+
+
+            <i class="fa fa-file-image faimg"></i>
+
+            <input name="input" id="file" type="file">
+
+
+
             <a href="javascript:return 0;" title="Negrita" onmousedown="document.execCommand('bold', false, null); return false;" class="editor-button">
                 <i class="fa fa-bold"></i>
             </a>
@@ -83,10 +92,12 @@
                 class="editor-button">
                 <i class="fa fa-align-right"></i>
             </a>
-            <a href="javascript:return 0;" title="Lista Numerica" onmousedown="document.execCommand('insertorderedlist', false, null); return false;" class="editor-button">
+            <a href="javascript:return 0;" title="Lista Numerica" onmousedown="document.execCommand('insertorderedlist', false, null); return false;"
+                class="editor-button">
                 <i class="fa fa-list-ol" aria-hidden="true"></i>
             </a>
-            <a href="javascript:return 0;" title="Lista de puntos" onmousedown="document.execCommand('insertunorderedlist', false, null); return false;" class="editor-button">
+            <a href="javascript:return 0;" title="Lista de puntos" onmousedown="document.execCommand('insertunorderedlist', false, null); return false;"
+                class="editor-button">
                 <i class="fa fa-list-ul" aria-hidden="true"></i>
             </a>
             <a href="javascript:return 0;" title="Copiar" onmousedown="document.execCommand('copy', false, null); return false;" class="editor-button">
@@ -104,7 +115,9 @@
             </a>
         </div>
         <div class="editor-window">
-            <div class="editor-textarea" contenteditable="true">Escriba aquí </div>
+            <div class="editor-textarea" contenteditable="true" id="editor-textarea">Escriba aquí
+
+            </div>
         </div>
     </div>
 </body>
