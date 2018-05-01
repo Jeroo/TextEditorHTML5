@@ -1,7 +1,6 @@
 $(document).ready(function () {
   $(document).tooltip();
-  $("img").resizable();
-
+  
   var container = $('.faimg'), inputFile = $('#file');	
 			
 	container.on('click', function(){	
@@ -104,8 +103,3 @@ function openTextArea() {
 
   $('#editor-textarea').html(localStorage.getItem('documento'));
 }
-
-
-
-
-
