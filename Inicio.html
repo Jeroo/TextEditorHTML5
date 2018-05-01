@@ -49,14 +49,18 @@
                 <option value="green">Verde</option>
                 <option value="black">Negro</option>
             </select>
-
-
-
-            <i class="fa fa-file-image faimg"></i>
-
+            <select onchange="formatDoc('fontsize',this[this.selectedIndex].value);this.selectedIndex=0;">
+                <option class="heading" selected>- Tamaño de Fuente -</option>
+                <option value="1">Muy pequeña</option>
+                <option value="2">Pequeña</option>
+                <option value="3">Normal</option>
+                <option value="4">Mediana</option>
+                <option value="5">Grande</option>
+                <option value="6">Muy grande</option>
+                <option value="7">Máximo</option>
+                </select>
+            <i class="fa fa-file-image faimg"  title="Cargar imagenes" class="editor-button"></i>
             <input name="input" id="file" type="file">
-
-
 
             <a href="javascript:return 0;" title="Negrita" onmousedown="document.execCommand('bold', false, null); return false;" class="editor-button">
                 <i class="fa fa-bold"></i>
@@ -71,15 +75,7 @@
             <a href="javascript:return 0;" title="Tachar text" onmousedown="document.execCommand('strikeThrough', false, null); return false;"
                 class="editor-button">
                 <i class="fa fa-strikethrough"></i>
-            </a>
-            <!--a href="javascript:return 0;" title="Disminuir el tamaño del texto" onmousedown="document.execCommand('decreaseFontSize', false, null); return false;"
-                class="editor-button">
-                <i class="fa fa-minus"></i>
-            </a>
-            <a href="javascript:return 0;" title="Aumentar el tamaño del texto" onmousedown="document.execCommand('increaseFontSize', false, null); return false;"
-                class="editor-button">
-                <i class="fa fa-plus"></i>
-            </a-->
+            </a>          
             <a href="javascript:return 0;" title="Justificar" onmousedown="document.execCommand('justifyleft', false, null); return false;"
                 class="editor-button">
                 <i class="fa fa-align-left"></i>
@@ -115,7 +111,7 @@
             </a>
         </div>
         <div class="editor-window">
-            <div class="editor-textarea" contenteditable="true" id="editor-textarea">Escriba aquí
+            <div class="editor-textarea" contenteditable="true" id="editor-textarea" draggable="true">
 
             </div>
         </div>

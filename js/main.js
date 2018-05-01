@@ -1,5 +1,6 @@
 $(document).ready(function () {
   $(document).tooltip();
+  $("img").resizable();
 
   var container = $('.faimg'), inputFile = $('#file');	
 			
@@ -63,11 +64,29 @@ function loadImageFileAsURL() {
       fileReader.onload = function (fileLoadedEvent) {
         var imageLoaded = document.createElement("img");
         imageLoaded.src = fileLoadedEvent.target.result;
+        imageLoaded.classList.add("resize");
         document.getElementById("editor-textarea").appendChild(imageLoaded);
       };
       fileReader.readAsDataURL(fileToLoad);
     }
   }
 }
+
+function insertHTML(img) {
+  var id = "rand" + Math.random();
+  var doc = document.getElementById("editor");
+  doc = doc.document ? doc.document : doc.contentWindow.document;
+  img = "<img src='" + img + "' id=" + id + ">";
+
+  if(document.all) {
+    var range = doc.selection.createRange();
+    range.pasteHTML(img);
+    range.collapse(false);
+    range.select();
+  } else {
+    doc.execCommand("insertHTML", false, img);
+  }
+  return doc.getElementById(id);
+};
 
 
