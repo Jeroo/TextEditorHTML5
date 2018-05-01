@@ -89,4 +89,23 @@ function insertHTML(img) {
   return doc.getElementById(id);
 };
 
+function appendToStorage(name, data) {
+  
+  localStorage.clear();
+  localStorage.setItem(name,data);
+}
+
+function addTextArea() {
+
+  appendToStorage('documento',  $('#editor-textarea').html());
+}
+
+function openTextArea() {
+
+  $('#editor-textarea').html(localStorage.getItem('documento'));
+}
+
+
+
+
 
