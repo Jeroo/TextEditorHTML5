@@ -25,16 +25,16 @@
             </div>
             <div class="editor-container">
                 <div class="editor-toolbar">
-                    <a href="javascript:return 0;" title="Guardar el documento" onmousedown="addTextArea()" class="editor-button">
+                    <a href="javascript: return false;" title="Guardar el documento" id="idSaveDoc" class="editor-button">
                         <i class="fa fa-save"></i>
                     </a>
-                    <a href="javascript:return 0;" title="Abrir el ultimo documento guardado" onmousedown="openTextArea()" class="editor-button">
+                    <a href="javascript: return false;" title="Abrir el ultimo documento guardado" id="idOpenDoc" class="editor-button">
                         <i class="fa fa-folder-open"></i>
                     </a>
-                    <a href="javascript:return 0;" title="Deshacer" onmousedown="document.execCommand('undo', false, null); return false;" class="editor-button">
+                    <a href="javascript: return false;" title="Deshacer" onmousedown="document.execCommand('undo', false, null); return false;" class="editor-button">
                         <i class="fa fa-undo"></i>
                     </a>
-                    <a href="javascript:return 0;" title="Rehacer" onmousedown="document.execCommand('redo', false, null); return false;" class="editor-button">
+                    <a href="javascript: return false;" title="Rehacer" onmousedown="document.execCommand('redo', false, null); return false;" class="editor-button">
                         <i class="fa fa-redo"></i>
                     </a>
                     <select onchange="formatDoc('formatblock',this[this.selectedIndex].value);this.selectedIndex=0;">
@@ -70,53 +70,53 @@
                         <option value="6">Muy grande</option>
                         <option value="7">Máximo</option>
                     </select>
-                    <i class="fa fa-file-image faimg" title="Cargar imagenes" class="editor-button"></i>
+                    <i class="fa fa-file-image faimg" id="faimgid" title="Cargar imagenes" class="editor-button"></i>
                     <input name="input" id="file" type="file">
 
-                    <a href="javascript:return 0;" title="Negrita" onmousedown="document.execCommand('bold', false, null); return false;" class="editor-button">
+                    <a href="javascript: return false;" title="Negrita" onmousedown="document.execCommand('bold', false, null); return false;" class="editor-button">
                         <i class="fa fa-bold"></i>
                     </a>
-                    <a href="javascript:return 0;" title="Itálica" onmousedown="document.execCommand('italic', false, null); return false;" class="editor-button">
+                    <a href="javascript: return false;" title="Itálica" onmousedown="document.execCommand('italic', false, null); return false;" class="editor-button">
                         <i class="fa fa-italic"></i>
                     </a>
-                    <a href="javascript:return 0;" title="Subrayado" onmousedown="document.execCommand('underline', false, null); return false;"
+                    <a href="javascript: return false;" title="Subrayado" onmousedown="document.execCommand('underline', false, null); return false;"
                         class="editor-button">
                         <i class="fa fa-underline"></i>
                     </a>
-                    <a href="javascript:return 0;" title="Tachar text" onmousedown="document.execCommand('strikeThrough', false, null); return false;"
+                    <a href="javascript: return false;" title="Tachar text" onmousedown="document.execCommand('strikeThrough', false, null); return false;"
                         class="editor-button">
                         <i class="fa fa-strikethrough"></i>
                     </a>
-                    <a href="javascript:return 0;" title="Justificar" onmousedown="document.execCommand('justifyleft', false, null); return false;"
+                    <a href="javascript: return false;" title="Justificar" onmousedown="document.execCommand('justifyleft', false, null); return false;"
                         class="editor-button">
                         <i class="fa fa-align-left"></i>
                     </a>
-                    <a href="javascript:return 0;" title="fa-align-center" onmousedown="document.execCommand('justifycenter', false, null); return false;"
+                    <a href="javascript: return false;" title="fa-align-center" onmousedown="document.execCommand('justifycenter', false, null); return false;"
                         class="editor-button">
                         <i class="fa fa-align-center"></i>
                     </a>
-                    <a href="javascript:return 0;" title="justifyright" onmousedown="document.execCommand('justifyright', false, null); return false;"
+                    <a href="javascript: return false;" title="justifyright" onmousedown="document.execCommand('justifyright', false, null); return false;"
                         class="editor-button">
                         <i class="fa fa-align-right"></i>
                     </a>
-                    <a href="javascript:return 0;" title="Lista Numerica" onmousedown="document.execCommand('insertorderedlist', false, null); return false;"
+                    <a href="javascript: return false;" title="Lista Numerica" onmousedown="document.execCommand('insertorderedlist', false, null); return false;"
                         class="editor-button">
                         <i class="fa fa-list-ol" aria-hidden="true"></i>
                     </a>
-                    <a href="javascript:return 0;" title="Lista de puntos" onmousedown="document.execCommand('insertunorderedlist', false, null); return false;"
+                    <a href="javascript: return false;" title="Lista de puntos" onmousedown="document.execCommand('insertunorderedlist', false, null); return false;"
                         class="editor-button">
                         <i class="fa fa-list-ul" aria-hidden="true"></i>
                     </a>
-                    <a href="javascript:return 0;" title="Copiar" onmousedown="document.execCommand('copy', false, null); return false;" class="editor-button">
+                    <a href="javascript: return false;" title="Copiar" onmousedown="document.execCommand('copy', false, null); return false;" class="editor-button">
                         <i class="fa fa-clipboard" aria-hidden="true"></i>
                     </a>
-                    <a href="javascript:return 0;" title="Pegar" onmousedown="pastedText()" class="editor-button">
+                    <a href="javascript: return false;" title="Pegar" onmousedown="pastedText()" class="editor-button">
                         <i class="fa fa-clone" aria-hidden="true"></i>
                     </a>
-                    <a href="javascript:return 0;" title="Cortar" onmousedown="document.execCommand('cut', false, null); return false;" class="editor-button">
+                    <a href="javascript: return false;" title="Cortar" onmousedown="document.execCommand('cut', false, null); return false;" class="editor-button">
                         <i class="fa fa-cut" aria-hidden="true"></i>
                     </a>
-                    <a href="javascript:return 0;" title="Insertar hipervínculos" onmousedown="var sLnk=prompt('Escribe la URL aquí','http:\/\/');if(sLnk&&sLnk!=''&&sLnk!='http://'){formatDoc('createlink',sLnk);}"
+                    <a href="javascript: return false;" title="Insertar hipervínculos" onmousedown="var sLnk=prompt('Escribe la URL aquí','http:\/\/');if(sLnk&&sLnk!=''&&sLnk!='http://'){formatDoc('createlink',sLnk);}"
                         class="editor-button">
                         <i class="fa fa-link" aria-hidden="true"></i>
                     </a>
@@ -129,7 +129,5 @@
             </div>
         </div>
     </div>
-
 </body>
-
 </html>
